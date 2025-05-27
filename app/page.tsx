@@ -10,32 +10,31 @@ export default function Home() {
       description: "Provide most powerful solutions for your business problems  ",
       color: "#635bff",
       delay: 0,
-      image: "/services/quantum-consulting.jpg",
-      logos: ["/logos/openai.svg", "/logos/cursor.svg", "/logos/anthropic.svg"]
+      image: "/QuantumCom.jpeg"
     },
     {
       title: "Generative AI Solutions",
       description: "Custom generative AI models and automation tailored to your needs.",
       color: "#635bff",
       delay: 0.2,
-      image: "/services/ai-solutions.jpg",
-      logos: ["/logos/slack.svg", "/logos/twilio.svg", "/logos/linear.svg"]
+      image: "/genAI.jpeg"
+     
     },
     {
       title: "Web Development",
       description: "We provide decated teams to build Full stack Websites for Personal and Business purposes",
       color: "#635bff",
       delay: 0.4,
-      image: "/services/data-analytics.jpg",
-      logos: ["/logos/bloomnation.svg", "/logos/stripe.svg", "/logos/other.svg"]
+      image: "/WebDev.jpeg"
+     
     },
     {
       title: "App Development",
       description: "We make most scalable Mobile Applications for your business",
       color: "#635bff",
       delay: 0.6,
-      image: "/services/secure-solutions.jpg",
-      logos: ["/logos/lock.svg", "/logos/shield.svg", "/logos/security.svg"]
+      image: "/AppDev.jpeg"
+     
     }
   ];
 
@@ -113,7 +112,7 @@ export default function Home() {
             <div className="bg-white/90 rounded-3xl shadow-xl p-2 min-h-[260px] min-w-[300px] w-full max-w-md flex items-center justify-center">
               {/* You can add an image, illustration, or content here */}
               <img 
-                src="/braingenerated.jpg" 
+                src="/Designer (2).jpeg" 
                 alt="AI Brain" 
                 className="rounded-2xl"
               />
@@ -131,24 +130,32 @@ export default function Home() {
       {/* Services Section */}
       <section className="relative w-full bg-[#f6f9fc] py-20 px-4 md:px-0 flex flex-col items-center overflow-hidden">
         <div className="max-w-[2000px] w-full mx-auto flex flex-col items-center">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-extrabold text-gray-900 mb-4 text-center"
-          >
-            Support for any business type
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600 mb-12 text-center max-w-2xl"
-          >
-            From global AI companies to category-defining marketplaces, successful businesses across industries grow and scale with us.
-          </motion.p>
-          <div className="w-full overflow-x-auto pb-8 px-4 scrollbar-hide">
+          <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl font-black tracking-tight text-gray-900 mb-2 md:mb-0 md:mr-6 drop-shadow-sm ml-30"
+              >
+                Services
+              </motion.h2>
+            
+            </div>
+            <div className="flex gap-3 justify-center md:justify-end mt-4 md:mt-0 md:mr-17">
+              <button className="w-11 h-11 flex items-center justify-center rounded-full border border-gray-300 bg-white text-gray-500 shadow-lg hover:bg-[#fa326c]/10 hover:text-[#fa326c] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#fa326c]" onClick={() => scroll(-1)}>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button className="w-11 h-11 flex items-center justify-center rounded-full border border-gray-300 bg-white text-gray-500 shadow-lg hover:bg-[#a960ee]/10 hover:text-[#a960ee] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#a960ee]" onClick={() => scroll(1)}>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div className="w-full overflow-x-auto pb-8 px-4 scrollbar-hide scroll-container">
             <motion.div 
               variants={containerVariants}
               initial="hidden"
@@ -168,14 +175,13 @@ export default function Home() {
                     scale: 1.02,
                     transition: { type: "spring", stiffness: 400, damping: 10 }
                   }}
-                  className="relative w-[370px] h-[420px] bg-white rounded-2xl shadow-md flex flex-col justify-between border border-gray-100 scroll-snap-align-center"
-                  style={{ borderTop: `6px solid ${service.color}` }}
+                  className="relative w-[400px] h-[450px] bg-gradient-to-br from-[#ffbe40] via-[#fa326c] to-[#a960ee] rounded-3xl shadow-lg flex flex-col justify-between border border-gray-300 scroll-snap-align-center"
                 >
                   {/* Image on top */}
                   <div className="w-full flex justify-center pt-6 pb-3">
-                    <img src={service.image} alt={service.title} className="h-24 w-24 object-cover rounded-xl shadow" />
+                    <img src={service.image} alt={service.title} className="h-70 w-70 object-cover rounded-xl shadow-lg" />
                   </div>
-                  <div className="px-8 pb-3 flex-1 flex flex-col">
+                  <div className="px-8 pb-3 flex-1 flex flex-col bg-white/80 rounded-b-3xl">
                     <h3 className="font-bold text-2xl mb-3 text-gray-900">{service.title}</h3>
                     <p className="text-gray-700 mb-2 flex-1">{service.description}</p>
                     <a href="#" className="text-[#635bff] font-semibold hover:underline text-base">Learn more &rarr;</a>
@@ -219,4 +225,12 @@ export default function Home() {
       </section>
     </div>
   );
+}
+
+function scroll(direction: number) {
+  const container = document.querySelector('.scroll-container');
+  if (container) {
+    const scrollAmount = 400;
+    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
 }
