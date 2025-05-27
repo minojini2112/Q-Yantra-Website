@@ -24,3 +24,158 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Gradient Animation Styles */
+/* Pattern 1: Flame Gradient */
+@keyframes flame-gradient {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 50% 25%;
+    filter: hue-rotate(-15deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(15deg);
+  }
+  75% {
+    background-position: 50% 75%;
+    filter: hue-rotate(-15deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Pattern 2: Pulse Wave */
+@keyframes pulse-wave {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+}
+
+/* Pattern 3: Diagonal Flow */
+@keyframes diagonal-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Pattern 4: Radial Pulse */
+@keyframes radial-pulse {
+  0% {
+    background-size: 100% 100%;
+    opacity: 1;
+  }
+  50% {
+    background-size: 200% 200%;
+    opacity: 0.8;
+  }
+  100% {
+    background-size: 100% 100%;
+    opacity: 1;
+  }
+}
+
+/* Pattern 5: Smooth Shift */
+@keyframes smooth-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Pattern 6: Wave Mix */
+@keyframes wave-mix {
+  0% {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    background-position: 100% 25%;
+    filter: hue-rotate(5deg) brightness(1.1);
+  }
+  50% {
+    background-position: 100% 100%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  75% {
+    background-position: 0% 75%;
+    filter: hue-rotate(-5deg) brightness(0.9);
+  }
+  100% {
+    background-position: 0% 0%;
+    filter: hue-rotate(0deg) brightness(1);
+  }
+}
+
+/* Animation Classes */
+.animate-flame-gradient {
+  background-size: 400% 400%;
+  animation: flame-gradient 25s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+
+.animate-pulse-wave {
+  background-size: 200% 200%;
+  animation: pulse-wave 8s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.animate-diagonal-flow {
+  background-size: 200% 200%;
+  animation: diagonal-flow 15s linear infinite;
+  will-change: background-position;
+}
+
+.animate-radial-pulse {
+  background-size: 100% 100%;
+  animation: radial-pulse 10s ease-in-out infinite;
+  will-change: background-size, opacity;
+}
+
+.animate-smooth-shift {
+  background-size: 200% 200%;
+  animation: smooth-shift 20s ease-in-out infinite;
+  will-change: background-position;
+}
+
+.animate-wave-mix {
+  background-size: 200% 200%;
+  animation: wave-mix 5s ease-in-out infinite;
+  will-change: background-position, filter;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
