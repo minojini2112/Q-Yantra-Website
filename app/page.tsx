@@ -110,8 +110,13 @@ export default function Home() {
           </div>
           {/* Right: White background box */}
           <div className="flex-1 flex items-center justify-center w-full">
-            <div className="bg-white/90 rounded-3xl shadow-xl p-10 min-h-[300px] min-w-[300px] w-full max-w-md flex items-center justify-center">
+            <div className="bg-white/90 rounded-3xl shadow-xl p-2 min-h-[260px] min-w-[300px] w-full max-w-md flex items-center justify-center">
               {/* You can add an image, illustration, or content here */}
+              <img 
+                src="/braingenerated.jpg" 
+                alt="AI Brain" 
+                className="rounded-2xl"
+              />
             </div>
           </div>
         </div>
@@ -167,19 +172,15 @@ export default function Home() {
                   style={{ borderTop: `6px solid ${service.color}` }}
                 >
                   {/* Image on top */}
-                  <div className="w-full flex justify-center pt-6 pb-2">
+                  <div className="w-full flex justify-center pt-6 pb-3">
                     <img src={service.image} alt={service.title} className="h-24 w-24 object-cover rounded-xl shadow" />
                   </div>
-                  <div className="px-8 pb-4 flex-1 flex flex-col">
+                  <div className="px-8 pb-3 flex-1 flex flex-col">
                     <h3 className="font-bold text-2xl mb-3 text-gray-900">{service.title}</h3>
-                    <p className="text-gray-700 mb-6 flex-1">{service.description}</p>
+                    <p className="text-gray-700 mb-2 flex-1">{service.description}</p>
                     <a href="#" className="text-[#635bff] font-semibold hover:underline text-base">Learn more &rarr;</a>
                   </div>
-                  <div className="border-t border-gray-100 px-8 py-4 flex items-center gap-6 min-h-[48px]">
-                    {service.logos.map((logo, i) => (
-                      <img key={i} src={logo} alt="logo" className="h-7 object-contain" />
-                    ))}
-                  </div>
+                 
                 </motion.div>
               ))}
               {/* Add right padding to allow last card to center */}
@@ -193,6 +194,26 @@ export default function Home() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
             <span>Scroll to explore more</span>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="relative w-full bg-gradient-to-tr from-blue-700 via-blue-800 to-blue-900 py-20 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+        <div className="max-w-4xl w-full mx-auto flex flex-col items-center text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-6">About Us</h2>
+          <p className="text-lg text-blue-100 mb-8 max-w-2xl">
+            Q-Yantra is dedicated to pioneering advancements in Quantum Computing and Generative AI. Our mission is to empower businesses with scalable, innovative solutions that drive growth and efficiency. With a team of passionate experts, we blend cutting-edge technology with deep industry knowledge to deliver impactful results for our clients worldwide.
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 w-full justify-center items-center">
+            <div className="bg-white/10 rounded-2xl p-8 shadow-lg flex-1 min-w-[250px]">
+              <h3 className="text-2xl font-bold text-white mb-2">Our Vision</h3>
+              <p className="text-blue-100">To be a global leader in quantum and AI-driven transformation, shaping the future of technology and business.</p>
+            </div>
+            <div className="bg-white/10 rounded-2xl p-8 shadow-lg flex-1 min-w-[250px]">
+              <h3 className="text-2xl font-bold text-white mb-2">Our Values</h3>
+              <p className="text-blue-100">Innovation, Integrity, Collaboration, and Excellence drive everything we do at Q-Yantra.</p>
+            </div>
           </div>
         </div>
       </section>
