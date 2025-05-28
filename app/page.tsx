@@ -174,11 +174,10 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-5xl font-black tracking-tight text-gray-900 mb-2 md:mb-0 md:mr-6 drop-shadow-sm ml-30"
+                className="text-5xl font-black tracking-tight text-gray-900 mb-2 md:mb-0 md:mr-6 drop-shadow-sm pl-10"
               >
                 Services
               </motion.h2>
-            
             </div>
             <div className="flex gap-3 justify-center md:justify-end mt-4 md:mt-0 md:mr-17">
               <button className="w-11 h-11 flex items-center justify-center rounded-full border border-gray-300 bg-white text-gray-500 shadow-lg hover:bg-[#fa326c]/10 hover:text-[#fa326c] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#fa326c]" onClick={() => scroll(-1)}>
@@ -202,8 +201,6 @@ export default function Home() {
               className="flex gap-8 min-w-max px-4 justify-center"
               style={{ scrollSnapType: 'x mandatory' }}
             >
-              {/* Add left padding to start the first card slightly left of center */}
-              <div className="shrink-0" style={{ width: 'calc(35vw - 200px)' }} />
               {services.map((service, index) => (
                 <motion.div
                   key={service.title}
@@ -222,13 +219,16 @@ export default function Home() {
                   <div className="px-8 pb-3 flex-1 flex flex-col bg-white/80 rounded-b-3xl">
                     <h3 className="font-bold text-2xl pt-2 mb-3 text-gray-900">{service.title}</h3>
                     <p className="text-gray-700 mb-2 flex-1">{service.description}</p>
-                    <a href="#" className="text-[#635bff] font-semibold hover:underline text-base">Learn more &rarr;</a>
+                    <a
+                      href="#"
+                      className="bg-gradient-to-r from-[#a960ee] to-[#fa326c] text-white font-bold text-base rounded-full px-6 py-2 text-center shadow-xl border border-[#a960ee]/40 hover:from-[#7f5af0] hover:to-[#ff4f81] hover:shadow-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#a960ee] focus:ring-offset-2 mx-auto mt-2"
+                    >
+                      Get a Custom Plan
+                    </a>
                   </div>
                  
                 </motion.div>
               ))}
-              {/* Add right padding to allow last card to center */}
-              <div className="shrink-0" style={{ width: 'calc(50vw - 200px)' }} />
             </motion.div>
           </div>
           
@@ -289,24 +289,34 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="relative w-full bg-gradient-to-tr from-blue-700 via-blue-800 to-blue-900 py-20 px-4 md:px-0 flex flex-col items-center overflow-hidden">
-        <div className="max-w-4xl w-full mx-auto flex flex-col items-center text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">About Us</h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl">
-            Q-Yantra is dedicated to pioneering advancements in Quantum Computing and Generative AI. Our mission is to empower businesses with scalable, innovative solutions that drive growth and efficiency. With a team of passionate experts, we blend cutting-edge technology with deep industry knowledge to deliver impactful results for our clients worldwide.
-          </p>
-          <div className="flex flex-col md:flex-row gap-8 w-full justify-center items-center">
-            <div className="bg-white/10 rounded-2xl p-8 shadow-lg flex-1 min-w-[250px]">
-              <h3 className="text-2xl font-bold text-white mb-2">Our Vision</h3>
-              <p className="text-blue-100">To be a global leader in quantum and AI-driven transformation, shaping the future of technology and business.</p>
+      <section className="relative w-full bg-gradient-to-tr from-indigo-700 via-purple-800 to-pink-800 py-20 px-6 md:px-0 flex flex-col items-center overflow-hidden">
+        <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center gap-12">
+          {/* Left Column - Title and Description */}
+          <div className="flex-1 flex flex-col items-start text-left">
+            <h2 className="text-5xl font-bold text-white mb-6 tracking-tight drop-shadow-md">
+              What Drives Qyantra
+            </h2>
+            <p className="text-lg text-purple-100 mb-10 leading-relaxed">
+              Qyantra it&apos;s a launchpad for the next intelligence revolution. We fuse quantum computing, generative AI, machine learning, deep learning, and powerful web technologies to build solutions that push boundaries and break norms. We exist to arm creators, disruptors, and pioneers with the tools to shape tomorrow — faster, smarter!
+            </p>
+            <div className="w-full border-t border-purple-400/30 pt-8">
+              <p className="text-sm text-purple-200 tracking-wide">
+                Forged at the frontier by Qyantra innovators
+              </p>
             </div>
-            <div className="bg-white/10 rounded-2xl p-8 shadow-lg flex-1 min-w-[250px]">
-              <h3 className="text-2xl font-bold text-white mb-2">Our Values</h3>
-              <p className="text-blue-100">Innovation, Integrity, Collaboration, and Excellence drive everything we do at Q-Yantra.</p>
+          </div>
+
+          {/* Right Column - Statement */}
+          <div className="flex-1 flex items-center justify-center">
+            <div className="bg-gradient-to-br from-white via-purple-50 to-pink-50 rounded-3xl p-8 shadow-xl border border-purple-200/50">
+              <p className="text-2xl text-gray-800 font-medium italic max-w-md leading-relaxed">
+                Where others see algorithms, we see sparks of intelligence being born !
+              </p>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }
