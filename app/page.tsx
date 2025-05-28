@@ -38,6 +38,44 @@ export default function Home() {
     }
   ];
 
+  const products = [
+    {
+      title: "Business and Product Website",
+      description: "Transform your business with a custom-built, full-stack website. Our solutions include responsive design, secure payment integration, user authentication, and advanced analytics. Perfect for businesses looking to establish a strong online presence.",
+      icon: "/icon-incorporate.svg",
+      tag: "Website",
+      price: "Rs.80,000"
+    },
+    {
+      title: "RAG and LLM based Services",
+      description: "Leverage the power of advanced AI with our custom RAG and LLM solutions. We build intelligent chatbots and AI services that understand context, provide accurate responses, and continuously learn from interactions. Ideal for customer service and business automation.",
+      icon: "/icon-validate.svg",
+      tag: "Chatbot",
+      price: "Rs.40,000"
+    },
+    {
+      title: "Agents and MCPs for Business",
+      description: "Automate and optimize your business processes with our intelligent agents and Multi-Channel Platforms. Our solutions streamline operations, reduce manual work, and provide real-time insights for better decision-making.",
+      icon: "/icon-sell.svg",
+      tag: "Agents",
+      price: "Rs.15,000"
+    },
+    {
+      title: "Apps for Business",
+      description: "Get a custom mobile application tailored to your business needs. Our apps feature intuitive interfaces, offline capabilities, push notifications, and seamless integration with your existing systems. Available for both iOS and Android platforms.",
+      icon: "/icon-pricing.svg",
+      tag: "Apps",
+      price: "Rs.5,000"
+    },
+    {
+      title: "Edge AI products",
+      description: "Deploy AI solutions directly on edge devices for faster processing and reduced latency. Our Edge AI products are perfect for real-time applications, IoT devices, and scenarios requiring local processing capabilities.",
+      icon: "/icon-pricing.svg",
+      tag: "Edge AI",
+      price: "Rs.5,000"
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -182,7 +220,7 @@ export default function Home() {
                     <img src={service.image} alt={service.title} className="h-70 w-70 object-cover rounded-xl shadow-lg" />
                   </div>
                   <div className="px-8 pb-3 flex-1 flex flex-col bg-white/80 rounded-b-3xl">
-                    <h3 className="font-bold text-2xl mb-3 text-gray-900">{service.title}</h3>
+                    <h3 className="font-bold text-2xl pt-2 mb-3 text-gray-900">{service.title}</h3>
                     <p className="text-gray-700 mb-2 flex-1">{service.description}</p>
                     <a href="#" className="text-[#635bff] font-semibold hover:underline text-base">Learn more &rarr;</a>
                   </div>
@@ -200,6 +238,52 @@ export default function Home() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
             <span>Scroll to explore more</span>
+          </div>
+        </div>
+      </section>
+      {/* Products Section */}
+      <section className="relative w-full bg-[#f8fafc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+        <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-5xl font-black tracking-tight text-gray-900 mb-2"
+          >
+            Products
+          </motion.h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-[#a960ee] via-[#ffbe40] to-[#fa326c] rounded-full mb-12" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-16 w-full">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                }}
+                className="relative bg-gradient-to-br from-white to-white/90 rounded-3xl shadow-xl p-8 flex flex-col items-start justify-between gap-4 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-100 h-[400px]"
+              >
+                <div className="flex flex-col gap-4 w-full">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium px-3 py-1 bg-gradient-to-r from-[#a960ee]/10 to-[#fa326c]/10 rounded-full text-[#a960ee]">
+                      {product.tag}
+                    </span>
+                    <span className="text-2xl font-bold bg-gradient-to-r from-[#a960ee] to-[#fa326c] bg-clip-text text-transparent">
+                      {product.price}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">{product.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{product.description}</p>
+                </div>
+                <a href="#" className="w-full mt-auto bg-gradient-to-r from-[#a960ee] to-[#fa326c] text-white font-semibold rounded-full px-6 py-3 text-center shadow-lg hover:scale-105 transition-transform duration-200">
+                  Get Started
+                </a>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
