@@ -76,6 +76,40 @@ export default function Home() {
     }
   ];
 
+  const builtProducts = [
+    {
+      title: "Document Intelligence Platform",
+      description: "Developed an advanced document processing system that transforms traditional documents into AI-understandable formats. The solution enables intelligent document analysis, automated data extraction, and context-aware processing, significantly reducing manual document handling time.",
+      client: "Enterprise Solutions",
+      technologies: ["OCR", "RAG", "Multi-model AI", "LLM"],
+      year: "2024"
+    },
+    {
+      title: "Venture Capital Connect Platform",
+      description: "Built a comprehensive full-stack platform connecting entrepreneurs with venture capitalists. Features include intelligent matching algorithms, secure communication channels, and automated pitch deck analysis, streamlining the funding process for startups.",
+      client: "Startup Ecosystem",
+      technologies: ["Next.js", "Supabase", "Generative AI"],
+      year: "2024",
+      price: "Rs.17,500"
+    },
+    {
+      title: "AI-Powered Trading Automation System",
+      description: "Created an advanced trading platform powered by multi-model Generative AI. The system automates trading tasks, analyzes market patterns, and executes trades with precision, while maintaining compliance and risk management protocols.",
+      client: "Financial Services",
+      technologies: ["Next.js", "Supabase", "Generative AI"],
+      year: "2025",
+      price: "Rs.20,000"
+    },
+    {
+      title: "MCP and Agents Automation Suite",
+      description: "Implemented a sophisticated Model Context Protocol (MCP) with AI agents for enterprise workflow automation. The solution seamlessly integrates with existing applications, enabling natural language-based task automation and process optimization.",
+      client: "Enterprise Client",
+      technologies: ["MCP", "Agent Systems", "Generative AI"],
+      year: "2025",
+      price: "Rs.30,000"
+    }
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -241,20 +275,26 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Products Section */}
-      <section className="relative w-full bg-[#f8fafc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+      {/* Success Stories Section */}
+      <section className="relative w-full bg-gradient-to-br from-[#f6f9fc] to-white py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
         <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
-          <motion.h2 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl font-black tracking-tight text-gray-900 mb-2"
+            className="text-center mb-20"
           >
-            Products
-          </motion.h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#a960ee] via-[#ffbe40] to-[#fa326c] rounded-full mb-12" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-16 w-full">
-            {products.map((product, index) => (
+            <h2 className="text-5xl font-black tracking-tight text-gray-900 mb-4">
+              Our Success Stories
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#a960ee] via-[#ffbe40] to-[#fa326c] rounded-full mx-auto mb-6" />
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover how we've helped organizations transform their operations with cutting-edge technology solutions
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
+            {builtProducts.map((product, index) => (
               <motion.div
                 key={product.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -265,29 +305,303 @@ export default function Home() {
                   scale: 1.02,
                   transition: { type: "spring", stiffness: 400, damping: 10 }
                 }}
-                className="relative bg-gradient-to-br from-white to-white/90 rounded-3xl shadow-xl p-8 flex flex-col items-start justify-between gap-4 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-gray-100 h-[400px]"
+                className="group relative bg-white rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-2xl transition-all duration-300"
               >
-                <div className="flex flex-col gap-4 w-full">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium px-3 py-1 bg-gradient-to-r from-[#a960ee]/10 to-[#fa326c]/10 rounded-full text-[#a960ee]">
-                      {product.tag}
-                    </span>
-                    <span className="text-2xl font-bold bg-gradient-to-r from-[#a960ee] to-[#fa326c] bg-clip-text text-transparent">
-                      {product.price}
-                    </span>
+                {/* Header Section */}
+                <div className="flex justify-between items-start">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">
+                      {product.title}
+                    </h3>
+                    <p className="text-[#a960ee] font-medium text-sm">
+                      {product.client}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{product.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{product.description}</p>
+                  <div className="flex flex-col items-end gap-2">
+                    <span className="text-sm font-medium px-4 py-1.5 bg-gradient-to-r from-[#a960ee]/10 to-[#fa326c]/10 rounded-full text-[#a960ee]">
+                      {product.year}
+                    </span>
+                    {product.price && (
+                      <span className="text-sm font-bold text-gray-900">
+                        {product.price}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <a href="#" className="w-full mt-auto bg-gradient-to-r from-[#a960ee] to-[#fa326c] text-white font-semibold rounded-full px-6 py-3 text-center shadow-lg hover:scale-105 transition-transform duration-200">
-                  Get Started
-                </a>
+
+                {/* Description Section */}
+                <div className="flex-1">
+                  <p className="text-gray-600 leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
+
+                {/* Technologies Section */}
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-100">
+                  {product.technologies.map((tech) => (
+                    <span 
+                      key={tech} 
+                      className="text-sm px-3 py-1 bg-gray-50 text-gray-700 rounded-full border border-gray-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+      {/* Products Section */}
+      <section className="relative w-full bg-[#f8fafc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+        <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-5xl font-black tracking-tight text-gray-900 mb-4">
+              Products
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#a960ee] via-[#ffbe40] to-[#fa326c] rounded-full mx-auto mb-8" />
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative bg-white rounded-3xl shadow-xl p-12 max-w-2xl w-full text-center"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 rounded-3xl" />
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                Yet to Come Here!
+              </h3>
+              <p className="text-xl text-gray-600 mb-8">
+                We're brewing something exciting. Stay tuned for our upcoming product launches.
+              </p>
+              <div className="flex justify-center gap-4">
+                <div className="w-3 h-3 bg-[#a960ee] rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                <div className="w-3 h-3 bg-[#ffbe40] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                <div className="w-3 h-3 bg-[#fa326c] rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      
+
+      {/* Technical Resources Section */}
+      <section className="relative w-full bg-gradient-to-br from-white to-[#f6f9fc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#a960ee]/10 to-[#fa326c]/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-br from-[#ffbe40]/10 to-[#a960ee]/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl w-full mx-auto flex flex-col items-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-[#a960ee] font-semibold tracking-wider uppercase text-sm mb-4 block">Knowledge Hub</span>
+            <h2 className="text-5xl font-black tracking-tight text-gray-900 mb-4">
+              Technical Resources
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#a960ee] via-[#ffbe40] to-[#fa326c] rounded-full mx-auto mb-6" />
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Explore our collection of technical insights, research papers, and industry expertise
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            {/* Research Papers */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#a960ee] to-[#fa326c] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">Research Papers</h3>
+              </div>
+              <p className="text-gray-600 relative z-10">Access our latest research findings and technical papers on quantum computing and AI advancements.</p>
+              <a href="#" className="text-[#a960ee] font-medium hover:text-[#fa326c] transition-colors duration-200 flex items-center gap-2 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                Explore Papers
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+
+            {/* White Papers */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#a960ee] to-[#fa326c] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">White Papers</h3>
+              </div>
+              <p className="text-gray-600 relative z-10">In-depth analysis and technical documentation of our solutions and methodologies.</p>
+              <a href="#" className="text-[#a960ee] font-medium hover:text-[#fa326c] transition-colors duration-200 flex items-center gap-2 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                Read White Papers
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+
+            {/* Technical Blog */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#a960ee] to-[#fa326c] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">Technical Blog</h3>
+              </div>
+              <p className="text-gray-600 relative z-10">Latest insights, tutorials, and technical discussions from our expert team.</p>
+              <a href="#" className="text-[#a960ee] font-medium hover:text-[#fa326c] transition-colors duration-200 flex items-center gap-2 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                Read Blog
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+
+            {/* Publications */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#a960ee] to-[#fa326c] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">Publications</h3>
+              </div>
+              <p className="text-gray-600 relative z-10">Our published works in leading journals and technical publications.</p>
+              <a href="#" className="text-[#a960ee] font-medium hover:text-[#fa326c] transition-colors duration-200 flex items-center gap-2 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                View Publications
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+
+            {/* Research Blog */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#a960ee] to-[#fa326c] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">Research Blog</h3>
+              </div>
+              <p className="text-gray-600 relative z-10">Deep dives into our ongoing research and experimental findings.</p>
+              <a href="#" className="text-[#a960ee] font-medium hover:text-[#fa326c] transition-colors duration-200 flex items-center gap-2 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                Explore Research
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+
+            {/* Case Studies */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg p-8 flex flex-col gap-6 border border-gray-100 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#a960ee]/5 to-[#fa326c]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#a960ee] to-[#fa326c] rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#a960ee] transition-colors duration-300">Case Studies</h3>
+              </div>
+              <p className="text-gray-600 relative z-10">Detailed analysis of our successful implementations and solutions.</p>
+              <a href="#" className="text-[#a960ee] font-medium hover:text-[#fa326c] transition-colors duration-200 flex items-center gap-2 relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                View Case Studies
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Floating action button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.1 }}
+            className="mt-12"
+          >
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#a960ee] to-[#fa326c] text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <span>View All Resources</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
+      </section>
       {/* About Section */}
       <section className="relative w-full bg-gradient-to-tr from-blue-700 via-blue-800 to-blue-900 py-20 px-4 md:px-0 flex flex-col items-center overflow-hidden">
         <div className="max-w-4xl w-full mx-auto flex flex-col items-center text-center">
