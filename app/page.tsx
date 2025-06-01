@@ -152,23 +152,22 @@ export default function Home() {
           <span className="font-extrabold text-2xl text-gray-900 tracking-tight">Yantra</span>
         </div>
         <div className="hidden md:flex gap-8 text-gray-800 font-medium text-base">
-          <a href="#" className="hover:text-[#a960ee] transition-colors duration-200">Services</a>
-          <a href="#" className="hover:text-[#a960ee] transition-colors duration-200">Products</a>
-          <a href="#" className="hover:text-[#a960ee] transition-colors duration-200">Research</a>
-          <a href="#" className="hover:text-[#a960ee] transition-colors duration-200">Publications</a>
-          <a href="#" className="hover:text-[#a960ee] transition-colors duration-200">About Us</a>
+          <a href="#services" className="relative hover:text-white transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#a960ee] after:transition-all after:duration-300 hover:after:w-full">Services</a>
+          <a href="#products" className="relative hover:text-white transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#a960ee] after:transition-all after:duration-300 hover:after:w-full">Products</a>
+          <a href="#research" className="relative hover:text-white transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#a960ee] after:transition-all after:duration-300 hover:after:w-full">Resources</a>
+          <a href="#about" className="relative hover:text-white transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-[#a960ee] after:transition-all after:duration-300 hover:after:w-full">About Us</a>
         </div>
         <div className="flex gap-3 items-center">
           <a
-            href="#"
-            className="bg-gradient-to-tr from-[#a960ee] to-[#fa326c] text-white font-semibold rounded-full px-6 py-2 shadow-lg hover:scale-105 transition-transform duration-200"
+            href="#contact"
+            className="bg-gradient-to-tr from-[#a960ee] to-[#fa326c] text-white font-semibold rounded-full px-6 py-2 shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[#fa326c]"
           >
             Contact sales
           </a>
         </div>
       </nav>
       {/* Hero Section */}
-      <section className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left pt-17 pb-32 md:pb-48 px-4 md:px-0 mx-auto w-full gap-10 overflow-visible">
+      <section id="home" className="relative flex flex-col md:flex-row items-center justify-center text-center md:text-left pt-16 pb-24 md:pb-48 px-4 md:px-0 mx-auto w-full gap-6 md:gap-10 overflow-visible">
         <div className="relative z-10 max-w-7xl w-full mx-auto flex flex-col md:flex-row gap-10">
           {/* Left: Headline and description */}
           <div className="flex-1 flex flex-col items-center md:items-start justify-center">
@@ -200,7 +199,7 @@ export default function Home() {
         />
       </section>
       {/* Services Section */}
-      <section className="relative w-full bg-[#f6f9fc] py-20 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+      <section id="services" className="relative w-full bg-[#f6f9fc] py-20 px-4 md:px-0 flex flex-col items-center overflow-hidden">
         <div className="max-w-[2000px] w-full mx-auto flex flex-col items-center">
           <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between mb-8">
             <div className="flex flex-col md:flex-row md:items-center gap-4">
@@ -250,15 +249,15 @@ export default function Home() {
                   <div className="w-full flex justify-center pt-6 pb-6">
                     <img src={service.image} alt={service.title} className="h-70 w-70 object-cover rounded-xl shadow-lg" />
                   </div>
-                  <div className="px-8 pb-3 flex-1 flex flex-col bg-white/80 rounded-b-3xl"
+                  <div className="px-8 pb-3 flex-1 flex flex-col bg-white/90 rounded-b-3xl"
                   >
                     <h3 className="font-bold text-2xl pt-2 mb-3 text-gray-900">{service.title}</h3>
                     <p className="text-gray-700 mb-2 flex-1">{service.description}</p>
                     <a
                       href="#"
-                      className="bg-gradient-to-r from-[#a960ee] to-[#fa326c] text-white font-bold text-base rounded-full px-6 py-2 mt-2 mb-2 text-center shadow-xl border border-[#a960ee]/40 hover:from-[#7f5af0] hover:to-[#ff4f81] hover:shadow-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#a960ee] focus:ring-offset-2 mx-auto mt-2"
+                      className="bg-gradient-to-r from-[#a960ee] to-[#fa326c] text-white font-bold text-base rounded-full px-2 py-1  text-center shadow-xl border border-[#a960ee]/40 hover:from-[#7f5af0] hover:to-[#ff4f81] hover:shadow-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#a960ee] focus:ring-offset-2 mx-auto mt-2"
                     >
-                      Get a Custom Plan
+                      Get a Custom Plan 
                     </a>
                   </div>
                  
@@ -354,7 +353,7 @@ export default function Home() {
         </div>
       </section>
       {/* Products Section */}
-      <section className="relative w-full bg-[#f8fafc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+      <section id="products" className="relative w-full bg-[#f8fafc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
         <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -395,7 +394,7 @@ export default function Home() {
       
 
       {/* Technical Resources Section */}
-      <section className="relative w-full bg-gradient-to-br from-white to-[#f6f9fc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
+      <section id="research" className="relative w-full bg-gradient-to-br from-white to-[#f6f9fc] py-24 px-4 md:px-0 flex flex-col items-center overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#a960ee]/10 to-[#fa326c]/10 rounded-full blur-3xl" />
@@ -604,15 +603,15 @@ export default function Home() {
         </div>
       </section>
       {/* About Section */}
-      <section className="relative w-full bg-gradient-to-tr from-indigo-700 via-purple-800 to-pink-800 py-20 px-6 md:px-0 flex flex-col items-center overflow-hidden">
+      <section id="about" className="relative w-full bg-gradient-to-tr from-indigo-700 via-purple-800 to-pink-800 py-20 px-6 md:px-0 flex flex-col items-center overflow-hidden">
         <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center gap-12">
           {/* Left Column - Title and Description */}
           <div className="flex-1 flex flex-col items-start text-left">
             <h2 className="text-5xl font-bold text-white mb-6 tracking-tight drop-shadow-md">
-              What Drives Qyantra
+              What Drives Q Yantra
             </h2>
             <p className="text-lg text-purple-100 mb-10 leading-relaxed">
-              Qyantra it&apos;s a launchpad for the next intelligence revolution. We fuse quantum computing, generative AI, machine learning, deep learning, and powerful web technologies to build solutions that push boundaries and break norms. We exist to arm creators, disruptors, and pioneers with the tools to shape tomorrow — faster, smarter!
+              Q Yantra it&apos;s a launchpad for the next intelligence revolution. We fuse quantum computing, generative AI, machine learning, deep learning, and powerful web technologies to build solutions that push boundaries and break norms. We exist to arm creators, disruptors, and pioneers with the tools to shape tomorrow — faster, smarter!
             </p>
             <div className="w-full border-t border-purple-400/30 pt-8">
               <p className="text-sm text-purple-200 tracking-wide">
